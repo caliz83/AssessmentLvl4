@@ -48,8 +48,8 @@ function App() {
   }
 
   const handleUpdate = (post: Post) => {
-    const originalPosts = [...posts];
-    const updatePost = {...post, title: post.title}
+    // const originalPosts = [...posts];
+    const updatePost = {...post, title: post.title + '!'}
     setPosts(posts.map(p => p.id === post.id ? updatePost : p))
   }
 
@@ -64,7 +64,7 @@ function App() {
       <Container>
         <Button variant="outline-secondary" onClick={handleAdd}>Add New Post</Button>
         <ul>
-          {posts.map(post => <li key={post.id}>{post.title}<Button variant='outline-success' onClick={() => handleUpdate}>Update</Button><Button variant="outline-secondary" onClick={() => handleDelete(post)}>Delete</Button></li>)}
+          {posts.map(post => <li key={post.id}>{post.title}<Button variant='outline-success' onClick={() => handleUpdate(post)}>Update</Button><Button variant="outline-secondary" onClick={() => handleDelete(post)}>Delete</Button></li>)}
         </ul>
         
       </Container>
